@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 27e8372fb599bef4ba0fac391dd2ce5c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 318604
+  packageName: Ball Puzzle Platformer 2D - Game Template
+  packageVersion: 1.0
+  assetPath: Assets/BallPuzzlePlatformer 2D/ScriptableObjects/Levels/level 3.asset
+  uploadId: 752495

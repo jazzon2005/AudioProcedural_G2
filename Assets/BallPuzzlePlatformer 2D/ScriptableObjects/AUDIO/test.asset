@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94bc01adc94387543b00ed221e879d15, type: 3}
+  m_Name: test
+  m_EditorClassIdentifier: 
+  waveform: 0
+  amplitude: 0.3
+  baseFrequency: 440
+  useAdditive: 0
+  harmonicLevels:
+  - 1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  useADSR: 1
+  attack: 10
+  decay: 150
+  sustainLevel: 0.7
+  sustainTime: 200
+  release: 100
+  pitchSweepMultiplier: 1
+  pitchSweepTime: 0
+  useLFO: 0
+  lfoRate: 5
+  lfoDepthHz: 10

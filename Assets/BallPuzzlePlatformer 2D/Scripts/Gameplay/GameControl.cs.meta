@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: df9b548834c06c64db0e7df71e577e35
+timeCreated: 1538803081
+licenseType: Store
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 318604
+  packageName: Ball Puzzle Platformer 2D - Game Template
+  packageVersion: 1.0
+  assetPath: Assets/BallPuzzlePlatformer 2D/Scripts/Gameplay/GameControl.cs
+  uploadId: 752495

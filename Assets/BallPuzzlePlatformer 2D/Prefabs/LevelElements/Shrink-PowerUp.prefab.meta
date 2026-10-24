@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 1e766fa79ac9a534180151c5b55ad18a
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 318604
+  packageName: Ball Puzzle Platformer 2D - Game Template
+  packageVersion: 1.0
+  assetPath: Assets/BallPuzzlePlatformer 2D/Prefabs/LevelElements/Shrink-PowerUp.prefab
+  uploadId: 752495

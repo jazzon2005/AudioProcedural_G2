@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c1e13eeafe5289b49a1e7aeec2638da6
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 318604
+  packageName: Ball Puzzle Platformer 2D - Game Template
+  packageVersion: 1.0
+  assetPath: Assets/BallPuzzlePlatformer 2D/Prefabs/Particles/barrel-1-explode.prefab
+  uploadId: 752495

@@ -1,0 +1,30 @@
+using UnityEngine;
+using View.Control;
+
+namespace BallPuzzlePlatformer2D
+{
+    public class BladeRotate : MonoBehaviour
+    {
+        public float rotationSpeed = 200f;
+
+        void Update()
+        {
+            transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
+        }
+
+        void OnCollisionEnter2D(Collision2D col)
+        {
+            if (col.gameObject.CompareTag("Player"))
+            {
+                // SFX Procedural: Colisión con trampa/sierra
+                GameAudio.Instance?.Play(GameClip.InvalidRotate);
+
+                Player obj = col.gameObject.GetComponent<Player>();
+                if (obj != null)
+                {
+                    obj.Smash();
+                }
+            }
+        }
+    }
+}

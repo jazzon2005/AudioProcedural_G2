@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b776be727cb3d18428f16b54cf4e2b70
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 318604
+  packageName: Ball Puzzle Platformer 2D - Game Template
+  packageVersion: 1.0
+  assetPath: Assets/BallPuzzlePlatformer 2D/Prefabs/UI/game-ui.prefab
+  uploadId: 752495
