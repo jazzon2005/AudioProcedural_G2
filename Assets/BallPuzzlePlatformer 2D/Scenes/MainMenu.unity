@@ -230,6 +230,74 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 679b80a58e7e5af4d96d9c321bebea3a, type: 3}
+--- !u!1 &882374540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 882374541}
+  - component: {fileID: 882374542}
+  m_Layer: 0
+  m_Name: ProceduralMusic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &882374541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882374540}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -109.90889, y: 183.94719, z: -7.707508}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1767208849}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &882374542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882374540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8839af137b8774043a5c4b38b0cefe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bass:
+    preset: {fileID: 11400000, guid: e9ce70377c0797c4388f7519f9c737e8, type: 2}
+    voices: 2
+    volume: 0.362
+  pad:
+    preset: {fileID: 11400000, guid: 74dbbdf83fcb3d34d8e6b0e94104434b, type: 2}
+    voices: 3
+    volume: 0.401
+  lead:
+    preset: {fileID: 11400000, guid: e107962b816249b4c9a86275f73a1272, type: 2}
+    voices: 3
+    volume: 0.414
+  perc:
+    preset: {fileID: 11400000, guid: 2c47cb815e0311a4786310d689bc5849, type: 2}
+    voices: 2
+    volume: 0.421
+  kickHz: 70
+  snareHz: 2800
+  hatHz: 8000
+  playOnStart: 1
+  level: 1
+  musicVolume: 0.164
+  progress: 0
+  seed: 7
 --- !u!1 &1232865527
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +377,6 @@ GameObject:
   - component: {fileID: 1767208849}
   - component: {fileID: 1767208848}
   - component: {fileID: 1767208847}
-  - component: {fileID: 1767208846}
   m_Layer: 0
   m_Name: AudioSystem
   m_TagString: Untagged
@@ -317,39 +384,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1767208846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1767208845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8839af137b8774043a5c4b38b0cefe9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bass:
-    preset: {fileID: 11400000, guid: 00b627df1105834499d001cbed3c2dd8, type: 2}
-    voices: 2
-    volume: 1
-  pad:
-    preset: {fileID: 0}
-    voices: 3
-    volume: 1
-  lead:
-    preset: {fileID: 0}
-    voices: 3
-    volume: 1
-  perc:
-    preset: {fileID: 0}
-    voices: 2
-    volume: 1
-  playOnStart: 1
-  bpm: 96
-  musicVolume: 0.5
-  progress: 0
-  seed: 7
 --- !u!114 &1767208847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,6 +411,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SfxPresets:
   - {fileID: 11400000, guid: 00b627df1105834499d001cbed3c2dd8, type: 2}
+  - {fileID: 11400000, guid: 93b4acab0529e29459eacfa552f38058, type: 2}
+  - {fileID: 11400000, guid: 50e04c7fe27acaf4880ec204f0ccbea8, type: 2}
+  - {fileID: 11400000, guid: bb2a2f195290db0439408c53d5a8354c, type: 2}
+  - {fileID: 11400000, guid: 52c870f4405ec7943a91dc7e50620f67, type: 2}
+  - {fileID: 11400000, guid: ac2b36c766d931f45aa781d34bd370d0, type: 2}
+  - {fileID: 11400000, guid: e84737481aa55d248b939d660c7f5c10, type: 2}
+  - {fileID: 11400000, guid: 9665d1d298a58354fa9cc228d6c88ee7, type: 2}
+  - {fileID: 11400000, guid: bbc86104d0dea204da2028dd2030f592, type: 2}
+  - {fileID: 11400000, guid: 06365e042878671498440dfd5dbd3cbf, type: 2}
+  - {fileID: 11400000, guid: d5e11938d095d44439f3e6d6492b7fcc, type: 2}
+  - {fileID: 11400000, guid: 70041ee498bbe224797f1745c24bc366, type: 2}
+  - {fileID: 11400000, guid: 9c4837112273ac640875613c03131e43, type: 2}
+  - {fileID: 11400000, guid: 129adfed90ba5c1409b49790e91c071f, type: 2}
+  - {fileID: 11400000, guid: edd806602ca879b42a5fb45f14eaf818, type: 2}
+  - {fileID: 11400000, guid: c5ecfd0451dbb504faa159b3fcbc3d2f, type: 2}
+  - {fileID: 11400000, guid: 9e11c00f6dd07dd4a9325b3ac983072d, type: 2}
+  - {fileID: 11400000, guid: a283cfba86dcee74da49d3bf59dd9464, type: 2}
+  - {fileID: 11400000, guid: d06161ac8c24fc44484508ca4ddb6c63, type: 2}
+  - {fileID: 11400000, guid: 9bb049cebab09a74aa2e351e43ba617d, type: 2}
+  - {fileID: 11400000, guid: 9192a7b8631fcee4da249768101555b6, type: 2}
+  - {fileID: 11400000, guid: 9ad3e9b028b86b5418d43ed35a977efb, type: 2}
   MusicClips: []
 --- !u!4 &1767208849
 Transform:
@@ -390,7 +445,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 882374541}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2051838429
