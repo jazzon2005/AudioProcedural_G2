@@ -10,7 +10,7 @@ namespace BallPuzzlePlatformer2D
         public void Smash()
         {
             // SFX Procedural: Destrucción de objeto
-            GameAudio.Instance?.Play(GameClip.MovePushLow);
+            GameAudio.Instance?.Play(GameClip.ObjectDestroy);
 
             GameObject obj = Instantiate(m_SmashPrefab);
             obj.transform.position = transform.position + new Vector3(0, 0, -.1f);

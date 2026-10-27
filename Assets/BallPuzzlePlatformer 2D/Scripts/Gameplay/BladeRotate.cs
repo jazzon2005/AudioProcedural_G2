@@ -16,8 +16,8 @@ namespace BallPuzzlePlatformer2D
         {
             if (col.gameObject.CompareTag("Player"))
             {
-                // SFX Procedural: Colisión con trampa/sierra
-                GameAudio.Instance?.Play(GameClip.InvalidRotate);
+                // SFX Procedural: Colisión con trampa/sierra REVISAR
+                GameAudio.Instance?.Play(GameClip.BladeCollision);
 
                 Player obj = col.gameObject.GetComponent<Player>();
                 if (obj != null)

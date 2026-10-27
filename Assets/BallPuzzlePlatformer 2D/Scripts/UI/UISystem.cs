@@ -159,7 +159,7 @@ namespace BallPuzzlePlatformer2D
         static IEnumerator Co_ShowReward(string rewardType, string title, int count1, int count2, Sprite sprite)
         {
             // SFX Procedural: Notificación de recompensa
-            GameAudio.Instance?.Play(GameClip.ArcMoveHigh);
+            GameAudio.Instance?.Play(GameClip.RewardObtained);
 
             string prefab = "CoinRewardUI";
             GameObject uiObj = null;
@@ -222,7 +222,7 @@ namespace BallPuzzlePlatformer2D
 
         static IEnumerator Co_ShowCoinReward(int count)
         {
-            GameAudio.Instance?.Play(GameClip.ArcMoveHigh);
+            GameAudio.Instance?.Play(GameClip.RewardObtained);
             GameObject uiObj = ShowUI("CoinRewardUI");
             Text txt = FindText(uiObj, "text-amount");
             txt.text = count.ToString();
@@ -244,7 +244,7 @@ namespace BallPuzzlePlatformer2D
 
         static IEnumerator Co_ShowGemReward(int count)
         {
-            GameAudio.Instance?.Play(GameClip.ArcMoveHigh);
+            GameAudio.Instance?.Play(GameClip.RewardObtained);
             GameObject uiObj = ShowUI("GemRewardUI");
             Text txt = FindText(uiObj, "text-amount");
             txt.text = count.ToString();
@@ -266,7 +266,7 @@ namespace BallPuzzlePlatformer2D
 
         static IEnumerator Co_ShowCoinGemReward(int coincount, int gemcount)
         {
-            GameAudio.Instance?.Play(GameClip.ArcMoveHigh);
+            GameAudio.Instance?.Play(GameClip.RewardObtained);
             GameObject uiObj = ShowUI("CoinGemRewardUI");
             Text txtcoin = FindText(uiObj, "coin-text-amount");
             Text txtgem = FindText(uiObj, "gem-text-amount");
@@ -290,7 +290,7 @@ namespace BallPuzzlePlatformer2D
 
         static IEnumerator Co_ShowUpgradeReward(Sprite img, string title)
         {
-            GameAudio.Instance?.Play(GameClip.ArcMoveHigh);
+            GameAudio.Instance?.Play(GameClip.RewardObtained);
             GameObject uiObj = ShowUI("UpgradeRewardUI");
             Text txt = FindText(uiObj, "text-title");
             txt.text = title;

@@ -62,15 +62,18 @@ namespace View.Control
             if (Instance == null)
             {
                 Instance = this;
-                DontDestroyOnLoad(gameObject); // Mantener vivo entre cambios de escena
+                DontDestroyOnLoad(gameObject);
+                
+                EnsureAudioListener();
+                ValidateAndFixPresets();
             }
             else if (Instance != this)
             {
-                Destroy(gameObject); // Destruir duplicados si se carga una nueva escena
+                Destroy(gameObject);
                 return;
             }
         }
-
+        
         private void Start()
         {
             if (!PlayerPrefs.HasKey(MusicStatusKey)) PlayerPrefs.SetInt(MusicStatusKey, 0);
@@ -78,6 +81,7 @@ namespace View.Control
 
             MusicEnabled = PlayerPrefs.GetInt(MusicStatusKey) == 0;
             SfxEnabled = PlayerPrefs.GetInt(SfxStatusKey) == 0;
+            SafeInitializePlayerPrefs();
         }
 
         public ProceduralAudioSynth Play(GameClip clip, float delay = 0f, float volume = 1f, float startTime = 0f)
@@ -112,6 +116,71 @@ namespace View.Control
             {
                 ProceduralAudioManager.Instance.PlayPreset(preset, volumeScale: volume);
             }
+        }
+
+        private void EnsureAudioListener()
+        {
+            if (FindObjectOfType<AudioListener>() == null)
+            {
+                Debug.LogWarning("[GameAudio] No se encontró AudioListener. Añadiendo uno a la cámara principal automáticamente.");
+                if (Camera.main != null)
+                {
+                    Camera.main.gameObject.AddComponent<AudioListener>();
+                }
+                else
+                {
+                    gameObject.AddComponent<AudioListener>();
+                }
+            }
+        }
+
+        private ProceduralAudioSO _fallbackPreset;
+
+        private void ValidateAndFixPresets()
+        {
+            int enumSize = System.Enum.GetNames(typeof(GameClip)).Length;
+            
+            // Redimensionar si es más corto
+            if (SfxPresets == null || SfxPresets.Length < enumSize)
+            {
+                System.Array.Resize(ref SfxPresets, enumSize);
+            }
+
+            // Crear un sonido por defecto para referencias perdidas
+            if (_fallbackPreset == null)
+            {
+                _fallbackPreset = ScriptableObject.CreateInstance<ProceduralAudioSO>();
+                _fallbackPreset.baseFrequency = 440f;
+                _fallbackPreset.amplitude = 0.5f;
+                _fallbackPreset.useADSR = false;
+                _fallbackPreset.sustainTime = 100f;
+            }
+
+            for (int i = 0; i < SfxPresets.Length; i++)
+            {
+                if (SfxPresets[i] == null)
+                {
+                    Debug.LogWarning($"[GameAudio] Falta preset para {(GameClip)i}. Asignando fallback de emergencia.");
+                    SfxPresets[i] = _fallbackPreset;
+                }
+            }
+        }
+
+        private void SafeInitializePlayerPrefs()
+        {
+        #if UNITY_EDITOR
+            // En el editor, forzamos siempre el sonido para evitar falsos positivos de bugs
+            PlayerPrefs.SetInt(SfxStatusKey, 0);
+            PlayerPrefs.SetInt(MusicStatusKey, 0);
+            PlayerPrefs.Save();
+        #else
+            // En la build final, si las claves no existen, inicializarlas en 0 (encendido)
+            if (!PlayerPrefs.HasKey(MusicStatusKey)) PlayerPrefs.SetInt(MusicStatusKey, 0);
+            if (!PlayerPrefs.HasKey(SfxStatusKey)) PlayerPrefs.SetInt(SfxStatusKey, 0);
+        #endif
+
+            MusicEnabled = PlayerPrefs.GetInt(MusicStatusKey) == 0;
+            SfxEnabled = PlayerPrefs.GetInt(SfxStatusKey) == 0;
         }
 
         public void Play(MusicClip clip, float fadeTime = 0f, float delay = 0f, float volume = 1f, float startTime = 0f)
@@ -192,24 +261,7 @@ namespace View.Control
 
         // Interfaz de Usuario y Recompensas
         MenuSelect,
-        RewardObtained,
-
-        // Nombres de Plantilla (Compatibilidad)
-        WinBoard,
-        NodeEnter,
-        NodeLeave,
-        MovePushHigh,
-        MovePullHigh,
-        MovePullMid,
-        MovePushMid,
-        MovePullLow,
-        MovePushLow,
-        ArcMoveHigh,
-        NodeRotate90,
-        InvalidRotate,
-        LevelEnable,
-        ArcMoveMid,
-        ArcMoveLow
+        RewardObtained
     }
 
     /// <summary>

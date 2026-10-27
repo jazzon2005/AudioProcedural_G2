@@ -57,7 +57,7 @@ namespace BallPuzzlePlatformer2D
             m_ClosedSprite.SetActive(false);
 
             // SFX Procedural: Puerta abierta
-            GameAudio.Instance?.Play(GameClip.LevelEnable);
+            GameAudio.Instance?.Play(GameClip.DoorOpen);
         }
 
         public void CloseDoor()
@@ -67,7 +67,7 @@ namespace BallPuzzlePlatformer2D
             m_ClosedSprite.SetActive(true);
 
             // SFX Procedural: Puerta cerrada
-            GameAudio.Instance?.Play(GameClip.NodeLeave);
+            GameAudio.Instance?.Play(GameClip.DoorClose);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -79,7 +79,7 @@ namespace BallPuzzlePlatformer2D
                 m_IsBallEntering = true;
 
                 // SFX Procedural: Entrada del jugador a la puerta
-                GameAudio.Instance?.Play(GameClip.ArcMoveHigh);
+                GameAudio.Instance?.Play(GameClip.DoorEnter);
 
                 var m_PlayerScript = m_Player.GetComponent<Player>();
                 if (m_PlayerScript != null)

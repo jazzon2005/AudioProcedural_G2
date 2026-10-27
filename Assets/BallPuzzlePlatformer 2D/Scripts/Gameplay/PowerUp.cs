@@ -25,7 +25,7 @@ namespace BallPuzzlePlatformer2D
                 if (player != null)
                 {
                     // SFX Procedural: Recoger PowerUp
-                    GameAudio.Instance?.Play(GameClip.ArcMoveHigh);
+                    GameAudio.Instance?.Play(GameClip.PowerUpCollect);
 
                     switch (powerUpType)
                     {

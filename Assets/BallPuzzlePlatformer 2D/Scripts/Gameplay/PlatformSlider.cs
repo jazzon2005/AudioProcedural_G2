@@ -45,7 +45,7 @@ namespace BallPuzzlePlatformer2D
             while (m_KeepSliding)
             {
                 // SFX Procedural: Iniciar desplazamiento de plataforma
-                GameAudio.Instance?.Play(GameClip.ArcMoveMid);
+                GameAudio.Instance?.Play(GameClip.PlatformMove);
 
                 // Mover al objetivo
                 while (Vector3.Distance(transform.position, m_TargetPos) > 0.01f && m_KeepSliding)
@@ -59,7 +59,7 @@ namespace BallPuzzlePlatformer2D
                 if (m_KeepSliding)
                 {
                     // SFX Procedural: Retorno de plataforma
-                    GameAudio.Instance?.Play(GameClip.ArcMoveLow);
+                    GameAudio.Instance?.Play(GameClip.PlatformReturn);
                 }
 
                 // Mover de vuelta al origen

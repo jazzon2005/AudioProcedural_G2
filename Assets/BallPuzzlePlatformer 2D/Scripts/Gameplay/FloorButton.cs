@@ -55,7 +55,7 @@ namespace BallPuzzlePlatformer2D
                 m_IsPressed = true;
 
                 // SFX Procedural: Botón presionado
-                GameAudio.Instance?.Play(GameClip.NodeEnter);
+                GameAudio.Instance?.Play(GameClip.ButtonPress);
 
                 switch (action)
                 {
@@ -80,7 +80,7 @@ namespace BallPuzzlePlatformer2D
                 m_IsPressed = false;
 
                 // SFX Procedural: Botón liberado
-                GameAudio.Instance?.Play(GameClip.NodeLeave);
+                GameAudio.Instance?.Play(GameClip.ButtonRelease);
 
                 if (action == ButtonAction.SlidePlatform || action == ButtonAction.Both)
                 {

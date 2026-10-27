@@ -53,7 +53,7 @@ namespace BallPuzzlePlatformer2D
             {
                 ProceduralMusicSystem.Instance.PlayCadence();
             }
-            GameAudio.Instance?.Play(GameClip.WinBoard);
+            GameAudio.Instance?.Play(GameClip.LevelWin);
 
             yield return new WaitForSeconds(1);
             UISystem.RemoveUI("game-ui");

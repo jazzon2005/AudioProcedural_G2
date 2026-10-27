@@ -56,7 +56,7 @@ namespace BallPuzzlePlatformer2D
                 m_CanJump = false;
 
                 // SFX Procedural: Salto
-                GameAudio.Instance?.Play(GameClip.MovePushHigh);
+                GameAudio.Instance?.Play(GameClip.Jump);
             }
 
             Vector3 pos = transform.position;
@@ -113,7 +113,7 @@ namespace BallPuzzlePlatformer2D
                 if (!m_CanJump)
                 {
                     // SFX Procedural: Aterrizaje/Impacto
-                    GameAudio.Instance?.Play(GameClip.MovePushLow);
+                    GameAudio.Instance?.Play(GameClip.Landing);
                 }
                 m_CanJump = true;
             }
@@ -124,7 +124,7 @@ namespace BallPuzzlePlatformer2D
             if (collision.CompareTag("Ladder"))
             {
                 m_IsClimbing = true;
-                GameAudio.Instance?.Play(GameClip.NodeEnter);
+                GameAudio.Instance?.Play(GameClip.LadderClimb);
             }
             else if (collision.CompareTag("FallDetector"))
             {
@@ -144,7 +144,7 @@ namespace BallPuzzlePlatformer2D
         {
             if (!m_IsBoosted)
             {
-                GameAudio.Instance?.Play(GameClip.ArcMoveHigh);
+                GameAudio.Instance?.Play(GameClip.PowerUpCollect);
                 StartCoroutine(SpeedBoostRoutine(boostAmount, duration));
             }
         }
@@ -160,7 +160,7 @@ namespace BallPuzzlePlatformer2D
 
         public void ApplyJumpBoost(float boostAmount, float duration)
         {
-            GameAudio.Instance?.Play(GameClip.ArcMoveHigh);
+            GameAudio.Instance?.Play(GameClip.Jump);
             StartCoroutine(JumpBoostRoutine(boostAmount, duration));
         }
 
@@ -173,7 +173,7 @@ namespace BallPuzzlePlatformer2D
 
         public void ApplySizeChange(float scaleMultiplier, float duration)
         {
-            GameAudio.Instance?.Play(GameClip.ArcMoveHigh);
+            GameAudio.Instance?.Play(GameClip.PowerUpCollect);
             StartCoroutine(SizeChangeRoutine(scaleMultiplier, duration));
         }
 

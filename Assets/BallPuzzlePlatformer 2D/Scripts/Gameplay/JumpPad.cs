@@ -18,7 +18,7 @@ namespace BallPuzzlePlatformer2D
                     rb.AddForce(Vector2.up * m_BounceForce, ForceMode2D.Impulse);
 
                     // SFX Procedural: Impulso de plataforma
-                    GameAudio.Instance?.Play(GameClip.MovePushHigh);
+                    GameAudio.Instance?.Play(GameClip.JumpPadBounce);
                 }
             }
         }
