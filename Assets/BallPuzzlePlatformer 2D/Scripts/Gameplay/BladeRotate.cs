@@ -10,6 +10,7 @@ namespace BallPuzzlePlatformer2D
         void Update()
         {
             transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
+            GameAudio.Instance?.Play(GameClip.BladeRotate);
         }
 
         void OnCollisionEnter2D(Collision2D col)

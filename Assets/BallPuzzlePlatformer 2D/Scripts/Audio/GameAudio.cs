@@ -84,7 +84,24 @@ namespace View.Control
             SafeInitializePlayerPrefs();
         }
 
+        // -----------------------------------------------------------
+        // REPRODUCCIÓN 2D CLÁSICA (Retrocompatibilidad asegurada)
+        // -----------------------------------------------------------
         public ProceduralAudioSynth Play(GameClip clip, float delay = 0f, float volume = 1f, float startTime = 0f)
+        {
+            return Play(clip, null, delay, volume, startTime);
+        }
+
+        // -----------------------------------------------------------
+        // REPRODUCCIÓN 3D ESPACIAL (Nueva Sobrecarga)
+        // -----------------------------------------------------------
+        public ProceduralAudioSynth Play(GameClip clip, Vector3 position, float delay = 0f, float volume = 1f, float startTime = 0f)
+        {
+            return Play(clip, (Vector3?)position, delay, volume, startTime);
+        }
+
+        // Lógica unificada interna
+        private ProceduralAudioSynth Play(GameClip clip, Vector3? position, float delay, float volume, float startTime)
         {
             if (!enabled || !SfxEnabled) {
                 return null;
@@ -102,19 +119,19 @@ namespace View.Control
 
             if (delay > 0f)
             {
-                StartCoroutine(PlayDelayedRoutine(preset, delay, volume));
+                StartCoroutine(PlayDelayedRoutine(preset, delay, volume, position));
                 return null;
             }
 
-            return ProceduralAudioManager.Instance.PlayPreset(preset, volumeScale: volume);
+            return ProceduralAudioManager.Instance.PlayPreset(preset, volumeScale: volume, position: position);
         }
 
-        private IEnumerator PlayDelayedRoutine(ProceduralAudioSO preset, float delay, float volume)
+        private IEnumerator PlayDelayedRoutine(ProceduralAudioSO preset, float delay, float volume, Vector3? position)
         {
             yield return new WaitForSeconds(delay);
             if (enabled && SfxEnabled)
             {
-                ProceduralAudioManager.Instance.PlayPreset(preset, volumeScale: volume);
+                ProceduralAudioManager.Instance.PlayPreset(preset, volumeScale: volume, position: position);
             }
         }
 
@@ -261,7 +278,12 @@ namespace View.Control
 
         // Interfaz de Usuario y Recompensas
         MenuSelect,
-        RewardObtained
+        RewardObtained,
+
+        // NUEVOS
+        Move,
+        BladeRotate,
+        JumpPadIdle
     }
 
     /// <summary>

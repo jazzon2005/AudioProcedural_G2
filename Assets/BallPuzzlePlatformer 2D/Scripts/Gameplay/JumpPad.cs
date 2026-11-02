@@ -7,6 +7,11 @@ namespace BallPuzzlePlatformer2D
     {
         public float m_BounceForce = 20f;
 
+        void Update()
+        {
+            GameAudio.Instance?.Play(GameClip.JumpPadIdle);
+        }
+
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.collider.CompareTag("Player"))

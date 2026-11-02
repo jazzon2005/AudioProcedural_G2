@@ -29,6 +29,16 @@ public class ProceduralAudioSO : ScriptableObject
     [Range(0f, 10f)] public float lfoRate = 5f;   
     public float lfoDepthHz = 10f;                 
     public float LFOIndex => lfoRate > 0.0001f ? lfoDepthHz / lfoRate : 0f;
+
+    [Header("Audio Espacial 3D (Opcional)")]
+    [Tooltip("Si se desmarca, el sonido se reproducirá en 2D global con volumen constante, ignorando la distancia.")]
+    public bool enableSpatialAudio = false;
+    [Tooltip("Distancia máxima donde el volumen estará al 100%.")]
+    public float minDistance = 1f;
+    [Tooltip("Distancia a partir de la cual el volumen cae a 0%.")]
+    public float maxDistance = 20f;
+    [Tooltip("0 = 2D (Fijo en los oídos), 1 = 3D (Posicional completo).")]
+    [Range(0f, 1f)] public float spatialBlend = 1f;
 }
 
 public enum WaveformType

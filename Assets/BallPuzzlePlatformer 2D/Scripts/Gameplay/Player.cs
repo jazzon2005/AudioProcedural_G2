@@ -12,6 +12,10 @@ namespace BallPuzzlePlatformer2D
         public float m_MoveSpeed = 50f;
         public float m_JumpForce = 10f;
 
+        [Header("Audio")]
+        public float m_MoveSoundInterval = 0.15f; // Intervalo para el sonido de rodar/fricción
+        private float m_MoveSoundTimer = 0f;
+
         private Rigidbody2D rb;
         private bool m_CanJump = true;
         private bool m_IsClimbing = false;
@@ -77,9 +81,32 @@ namespace BallPuzzlePlatformer2D
                 m_Shadow.position = pos;
                 m_Shadow.rotation = Quaternion.identity;
             }
+            // --- Lógica de Audio Procedural de Movimiento ---
+            // 1. Capturamos el input actual (Teclado o Joystick)
+            float currentMoveInput = Input.GetAxisRaw("Horizontal");
+            if (m_Joystick != null && m_Joystick.LeftStick != null && Mathf.Abs(m_Joystick.LeftStick.StickOffset.x) > 0.1f)
+            {
+                currentMoveInput = m_Joystick.LeftStick.StickOffset.x;
+            }
+
+            // 2. Si hay input Y está en el suelo (m_CanJump true = grounded) Y no escala
+            if (Mathf.Abs(currentMoveInput) > 0.1f && m_CanJump && !m_IsClimbing)
+            {
+                m_MoveSoundTimer -= Time.deltaTime;
+                if (m_MoveSoundTimer <= 0f)
+                {
+                    // Llama al sonido usando la posición del jugador para el Audio 3D.
+                    // Ajustamos el volumen a 0.5f para que la fricción no abrume los demás sfx
+                    GameAudio.Instance?.Play(GameClip.Move, transform.position, volume: 0.5f);
+                    
+                    // Reinicia el temporizador
+                    m_MoveSoundTimer = m_MoveSoundInterval; 
+                }
+            }
             else
             {
                 m_Shadow.gameObject.SetActive(false);
+                m_MoveSoundTimer = 0;
             }
         }
 

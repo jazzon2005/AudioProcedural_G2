@@ -27,11 +27,20 @@ namespace View.Control
             }
         }
 
+        // Reproducción clásica 2D
         public ProceduralAudioSynth Play(GameClip clip, float delay = 0f, float volume = 1f, float startTime = 0f)
         {
             if (!enabled) return null;
             EnsureAudioReference();
             return _gameAudio != null ? _gameAudio.Play(clip, delay, volume, startTime) : null;
+        }
+
+        // Nueva Sobrecarga para Reproducción 3D
+        public ProceduralAudioSynth Play(GameClip clip, Vector3 position, float delay = 0f, float volume = 1f, float startTime = 0f)
+        {
+            if (!enabled) return null;
+            EnsureAudioReference();
+            return _gameAudio != null ? _gameAudio.Play(clip, position, delay, volume, startTime) : null;
         }
 
         public void Play(MusicClip clip, float fadeTime = 0f, float delay = 0f, float volume = 1f, float startTime = 0f)

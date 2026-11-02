@@ -36,12 +36,12 @@ public class ProceduralAudioManager : MonoBehaviour
         }
     }
 
-    public ProceduralAudioSynth PlayPreset(ProceduralAudioSO preset, float freqOverride = -1f, float volumeScale = 1f, float sustainMsOverride = -1f)
+    public ProceduralAudioSynth PlayPreset(ProceduralAudioSO preset, float freqOverride = -1f, float volumeScale = 1f, float sustainMsOverride = -1f, Vector3? position = null)
     {
         if (preset == null) return null;
 
         ProceduralAudioSynth synth = synthPool[poolIndex];
-        synth.PlayPreset(preset, freqOverride, volumeScale, sustainMsOverride);
+        synth.PlayPreset(preset, freqOverride, volumeScale, sustainMsOverride, position);
 
         poolIndex = (poolIndex + 1) % synthPoolSize;
         return synth;

@@ -3,6 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class ProceduralAudioSynth : MonoBehaviour
 {
+    private AudioSource audioSource;
     private ProceduralAudioSO currentPreset;
 
     private float currentFrequency;
@@ -35,10 +36,17 @@ public class ProceduralAudioSynth : MonoBehaviour
     void Awake()
     {
         sampleRate = AudioSettings.outputSampleRate;
+        audioSource = GetComponent<AudioSource>();
+        
+        // Configuraciones base del AudioSource que no cambian
+        audioSource.playOnAwake = false;
+        audioSource.loop = true;
+        // Se requiere que esté "reproduciendo" para que OnAudioFilterRead se procese continuamente
+        if (!audioSource.isPlaying) audioSource.Play(); 
     }
 
     public void PlayPreset(ProceduralAudioSO preset, float frequencyOverride = -1f,
-                           float volumeScale = 1f, float sustainMsOverride = -1f)
+                           float volumeScale = 1f, float sustainMsOverride = -1f, Vector3? position = null)
     {
         if (preset == null) return;
 
@@ -57,6 +65,27 @@ public class ProceduralAudioSynth : MonoBehaviour
 
         if (preset.harmonicLevels != null && preset.harmonicLevels.Length == 10)
             System.Array.Copy(preset.harmonicLevels, currentHarmonics, 10);
+
+        // Configuración Espacial 3D
+        if (preset.enableSpatialAudio)
+        {
+            audioSource.spatialBlend = preset.spatialBlend;
+            audioSource.minDistance = preset.minDistance;
+            audioSource.maxDistance = preset.maxDistance;
+            audioSource.rolloffMode = AudioRolloffMode.Logarithmic; // Atenuación realista
+            
+            // Movemos el sintetizador a la posición solicitada
+            if (position.HasValue)
+            {
+                transform.position = position.Value;
+            }
+        }
+        else
+        {
+            // Forzamos modo 2D y regresamos el objeto al centro para limpieza
+            audioSource.spatialBlend = 0f;
+            transform.localPosition = Vector3.zero;
+        }
 
         phase = 0f;
         lfoTime = 0f;
