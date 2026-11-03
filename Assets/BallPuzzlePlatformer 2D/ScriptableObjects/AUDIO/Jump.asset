@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Jump
   m_EditorClassIdentifier: 
   waveform: 1
-  amplitude: 0.171
+  amplitude: 0.354
   baseFrequency: 330
   useAdditive: 0
   harmonicLevels:
@@ -28,13 +28,17 @@ MonoBehaviour:
   - 0
   - 0
   useADSR: 1
-  attack: 1
+  attack: 5
   decay: 70
   sustainLevel: 0.099
-  sustainTime: 1
+  sustainTime: 2
   release: 50
   pitchSweepMultiplier: 0.6
   pitchSweepTime: 110
   useLFO: 0
   lfoRate: 6.12
   lfoDepthHz: 10
+  enableSpatialAudio: 0
+  minDistance: 1
+  maxDistance: 20
+  spatialBlend: 1

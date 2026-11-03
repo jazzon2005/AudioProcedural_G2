@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LadderClimb
   m_EditorClassIdentifier: 
   waveform: 2
-  amplitude: 0.125
+  amplitude: 0.333
   baseFrequency: 523
   useAdditive: 0
   harmonicLevels:
@@ -38,3 +38,7 @@ MonoBehaviour:
   useLFO: 0
   lfoRate: 5
   lfoDepthHz: 5
+  enableSpatialAudio: 0
+  minDistance: 1
+  maxDistance: 20
+  spatialBlend: 1

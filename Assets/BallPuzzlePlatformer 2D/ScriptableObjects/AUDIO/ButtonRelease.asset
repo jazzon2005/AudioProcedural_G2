@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ButtonRelease
   m_EditorClassIdentifier: 
   waveform: 1
-  amplitude: 0.132
+  amplitude: 0.349
   baseFrequency: 262
   useAdditive: 0
   harmonicLevels:
@@ -38,3 +38,7 @@ MonoBehaviour:
   useLFO: 0
   lfoRate: 6.12
   lfoDepthHz: 10
+  enableSpatialAudio: 0
+  minDistance: 1
+  maxDistance: 20
+  spatialBlend: 1

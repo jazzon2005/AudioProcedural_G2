@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ObjectDestroy
   m_EditorClassIdentifier: 
   waveform: 3
-  amplitude: 0.25
+  amplitude: 0.418
   baseFrequency: 900
   useAdditive: 0
   harmonicLevels:
@@ -38,3 +38,7 @@ MonoBehaviour:
   useLFO: 0
   lfoRate: 8
   lfoDepthHz: 30
+  enableSpatialAudio: 0
+  minDistance: 1
+  maxDistance: 20
+  spatialBlend: 1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameStart
   m_EditorClassIdentifier: 
   waveform: 1
-  amplitude: 0.204
+  amplitude: 0.143
   baseFrequency: 392
   useAdditive: 0
   harmonicLevels:
@@ -38,3 +38,7 @@ MonoBehaviour:
   useLFO: 0
   lfoRate: 5
   lfoDepthHz: 10
+  enableSpatialAudio: 0
+  minDistance: 1
+  maxDistance: 20
+  spatialBlend: 1

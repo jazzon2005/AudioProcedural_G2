@@ -10,35 +10,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 94bc01adc94387543b00ed221e879d15, type: 3}
-  m_Name: TRY
+  m_Name: JumpPadIdle
   m_EditorClassIdentifier: 
-  waveform: 3
-  amplitude: 0.289
-  baseFrequency: 400
+  waveform: 0
+  amplitude: 0.899
+  baseFrequency: 500
   useAdditive: 0
   harmonicLevels:
   - 1
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - 0.683
+  - 0.426
+  - 0.301
+  - 0.388
+  - 0.246
+  - 0.246
+  - 0.213
   - 0
   - 0
   useADSR: 1
-  attack: 2
-  decay: 450
-  sustainLevel: 0.27
-  sustainTime: 200
-  release: 500
-  pitchSweepMultiplier: 3
-  pitchSweepTime: 600
-  useLFO: 0
-  lfoRate: 9
+  attack: 400
+  decay: 300
+  sustainLevel: 0.767
+  sustainTime: 60
+  release: 400
+  pitchSweepMultiplier: 0.8
+  pitchSweepTime: 100
+  useLFO: 1
+  lfoRate: 3.6
   lfoDepthHz: 40
   enableSpatialAudio: 1
   minDistance: 1
-  maxDistance: 10
+  maxDistance: 8
   spatialBlend: 1

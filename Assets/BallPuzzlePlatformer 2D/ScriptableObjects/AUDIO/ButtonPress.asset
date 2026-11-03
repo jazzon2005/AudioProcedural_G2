@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ButtonPress
   m_EditorClassIdentifier: 
   waveform: 1
-  amplitude: 0.158
+  amplitude: 0.413
   baseFrequency: 196
   useAdditive: 0
   harmonicLevels:
@@ -30,7 +30,7 @@ MonoBehaviour:
   useADSR: 1
   attack: 1
   decay: 45
-  sustainLevel: 0.072
+  sustainLevel: 0.153
   sustainTime: 5
   release: 40
   pitchSweepMultiplier: 1.5
@@ -38,3 +38,7 @@ MonoBehaviour:
   useLFO: 1
   lfoRate: 8
   lfoDepthHz: 30
+  enableSpatialAudio: 0
+  minDistance: 1
+  maxDistance: 20
+  spatialBlend: 1

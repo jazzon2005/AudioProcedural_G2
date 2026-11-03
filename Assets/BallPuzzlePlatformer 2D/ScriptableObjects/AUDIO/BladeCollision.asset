@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BladeCollision
   m_EditorClassIdentifier: 
   waveform: 3
-  amplitude: 0.224
+  amplitude: 0.36
   baseFrequency: 330
   useAdditive: 0
   harmonicLevels:
@@ -38,3 +38,7 @@ MonoBehaviour:
   useLFO: 1
   lfoRate: 10
   lfoDepthHz: 80
+  enableSpatialAudio: 0
+  minDistance: 1
+  maxDistance: 20
+  spatialBlend: 1

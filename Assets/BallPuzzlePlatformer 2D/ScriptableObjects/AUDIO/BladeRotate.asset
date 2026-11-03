@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 94bc01adc94387543b00ed221e879d15, type: 3}
-  m_Name: TRY 1
+  m_Name: BladeRotate
   m_EditorClassIdentifier: 
   waveform: 3
-  amplitude: 0.289
-  baseFrequency: 400
+  amplitude: 1
+  baseFrequency: 196
   useAdditive: 0
   harmonicLevels:
   - 1
@@ -28,17 +28,17 @@ MonoBehaviour:
   - 0
   - 0
   useADSR: 1
-  attack: 2
-  decay: 450
-  sustainLevel: 0.27
-  sustainTime: 200
-  release: 500
-  pitchSweepMultiplier: 3
-  pitchSweepTime: 600
-  useLFO: 0
-  lfoRate: 9
-  lfoDepthHz: 40
-  enableSpatialAudio: 0
-  minDistance: 1
-  maxDistance: 10
+  attack: 60
+  decay: 200
+  sustainLevel: 0.804
+  sustainTime: 60000
+  release: 150
+  pitchSweepMultiplier: 0.7
+  pitchSweepTime: 200
+  useLFO: 1
+  lfoRate: 10
+  lfoDepthHz: 25
+  enableSpatialAudio: 1
+  minDistance: 2
+  maxDistance: 5
   spatialBlend: 1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerDeath
   m_EditorClassIdentifier: 
   waveform: 1
-  amplitude: 0.204
+  amplitude: 1
   baseFrequency: 220
   useAdditive: 0
   harmonicLevels:
@@ -38,3 +38,7 @@ MonoBehaviour:
   useLFO: 1
   lfoRate: 8
   lfoDepthHz: 30
+  enableSpatialAudio: 0
+  minDistance: 1
+  maxDistance: 20
+  spatialBlend: 1

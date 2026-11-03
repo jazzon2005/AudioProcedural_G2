@@ -413,7 +413,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9ad3e9b028b86b5418d43ed35a977efb, type: 2}
   - {fileID: 11400000, guid: ba96e80f48de09a40a403ef8bc0da6ce, type: 2}
   - {fileID: 11400000, guid: 673679c2b6be27b439167dd7cb2f86a0, type: 2}
-  - {fileID: 11400000, guid: 673679c2b6be27b439167dd7cb2f86a0, type: 2}
+  - {fileID: 11400000, guid: fcafa44a117778440a2bde9cefafcb23, type: 2}
   MusicClips: []
 --- !u!4 &1767208849
 Transform:
